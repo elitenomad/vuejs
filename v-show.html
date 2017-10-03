@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Understanding v-show directive in VueJS</title>
+</head>
+<body>
+    <div class="container">
+        <h2 v-show="!name">Enter your name!!!</h2>
+        <h2 v-show="name">Hello {{name}}</h2>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="name">Enter your name:</label>
+                <!-- binded input to 'name' -->
+                <input v-model="name" type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+        </form>
+        <!-- displays all data within Vue instance filtered through JSON -->
+        <pre v-show="name">{{ $data }}</pre>
+    </div>
+    </body>
+    <!-- cdn that contains all contents of Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+    <script type="text/javascript">
+        var container = new Vue({
+            el: '.container',
+            data: {
+                name: ""
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!--
+
+    Directive v-if works similar except for one difference. Element is present on the dom
+    only when v-if conditional clause returns true. else the element will be taken away from
+    dom.
+
+    You can use <template> with v-if condition. if there are multiple elements on dom to be shown conditionally.
+
+-->

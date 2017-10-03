@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting started with Vue JS</title>
+</head>
+<body>
+
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app-1">
+        <input v-model="firstname" />
+        {{ firstname }}
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hey you !!!'
+            }
+        });
+
+        var name = new Vue({
+            el: '#app-1',
+            data: {
+                firstname: 'Hey Man how are you?'
+            }
+        });
+
+
+    </script>
+
+
+</body>
+</html>

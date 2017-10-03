@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <title>Understanding v-if else directives</title>
+</head>
+<body>
+<div class="container">
+    <h2 v-if="name">Hello {{name}}</h2>
+    <h2 v-else>Start entering your name...</h2>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="name">Enter your name:</label>
+            <!-- binded input to 'name' -->
+            <input v-model="name" type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+
+        <button v-if="name">Show message to your allies</button>
+    </form>
+    <!-- displays all data within Vue instance filtered through JSON -->
+    <pre v-if="name">{{ $data }}</pre>
+</div>
+</body>
+<!-- cdn that contains all contents of Vue.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '.container',
+        data: {
+            //empty variable each binded to input
+            name: "",
+        },
+    })
+</script>
+</html>
