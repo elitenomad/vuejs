@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <title>Handling events</title>
+</head>
+<body>
+<div class="container">
+    <h2>People of Vue</h2>
+
+    <table class="table table-bordered">
+        <tr v-for="mayor in mayors">
+            <td>{{ mayor.name }}</td>
+            <td>{{ mayor.votes }}</td>
+            <td><button v-on:click="upvote(mayor)">Upvote</button></td>
+        </tr>
+    </table>
+
+    <div class="well well-lg">
+        Mayer is:  {{ winner.name }}
+        Votes: {{ winner.votes }}
+    </div>
+
+    <!-- displays all data within Vue instance filtered through JSON -->
+    <pre>{{ $data }}</pre>
+</div>
+</body>
+<!-- cdn that contains all contents of Vue.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '.container',
+        data: {
+            mayors: [{
+                name: 'Alladdin',
+                votes: 0
+            },{
+                name: 'Khilji',
+                votes: 0
+            },{
+                name: 'Pranava',
+                votes: 0
+            },{
+                name: 'Swaroop',
+                votes: 0
+            },{
+                name: 'Willy',
+                votes: 0
+            }]
+        },
+        methods: {
+            upvote: function(mayor) {
+                mayor.votes++
+            }
+        },
+        computed: {
+            winner: function(){
+               var competetors = this.mayors.sort(function(mayor_1, mayor_2){
+                   return mayor_1.votes - mayor_2.votes;
+                });
+                return competetors[competetors.length - 1];
+            }
+        }
+    })
+</script>
+</html>
